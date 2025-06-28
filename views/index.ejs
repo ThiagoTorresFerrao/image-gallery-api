@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/styles.css" />
+  <title>Galeria de Imagens</title>
+</head>
+<body>
+  <h1>Galeria de Imagens</h1>
+  <div class="gallery">
+    <% images.forEach(image => { %>
+      <div class="card">
+        <img src="<%= image.url %>" alt="<%= image.title %>" />
+        <h3><%= image.title %></h3>
+        <p><%= image.description %></p>
+        <form action="/images/<%= image.id %>/like" method="POST">
+          <button>❤️ Like (<%= image.likes %>)</button>
+        </form>
+      </div>
+    <% }) %>
+  </div>
+</body>
+</html>
